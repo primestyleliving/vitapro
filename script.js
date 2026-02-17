@@ -1,6 +1,5 @@
 // Intersection Observer for scroll animations
 document.addEventListener('DOMContentLoaded', function() {
-    
     // Smooth reveal animation on scroll
     const observerOptions = {
         threshold: 0.1,
@@ -11,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
                 observer.unobserve(entry.target);
             }
         });
@@ -20,10 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const elementsToAnimate = document.querySelectorAll(
         '.problem-item, .solution-card, .testimonial-card, .pricing-card, .step-card, .key-takeaways'
     );
-    
+
     elementsToAnimate.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
         observer.observe(el);
     });
 
@@ -45,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const videoPlaceholders = document.querySelectorAll('.video-placeholder, .video-thumb');
     videoPlaceholders.forEach(placeholder => {
         placeholder.addEventListener('click', function() {
-            // In a real implementation, this would open a video modal or player
             console.log('Video clicked - would open video player here');
             alert('In a live website, this would play the video. Replace the video-placeholder with actual video embed code.');
         });
@@ -63,21 +64,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const whatsappButtons = document.querySelectorAll('a[href*="wa.me"]');
     whatsappButtons.forEach(button => {
         button.addEventListener('click', function(e) {
-            // Track which package was clicked (for analytics)
             const packageName = this.closest('.pricing-card')?.querySelector('.package-title')?.textContent;
             if (packageName) {
                 console.log('Package selected:', packageName);
-                // You can send this to analytics
-            }
+            } 
         });
     });
 
     // Scroll progress indicator (optional enhancement)
     window.addEventListener('scroll', function() {
         const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-        
-        // You can use this to show a progress bar if desired
-        // Example: document.querySelector('.progress-bar').style.width = scrolled + '%';
     });
 
     // Testimonials auto-scroll on mobile (optional)
@@ -127,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle (if you add a mobile menu)
     const createMobileMenu = () => {
         // This is a placeholder for mobile menu functionality
-        // Can be expanded if needed
     };
 
     // Lazy loading for images (if you add real product images)
@@ -210,7 +205,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('beforeunload', function() {
         const timeOnPage = Math.round((Date.now() - pageStartTime) / 1000);
         console.log('Time on page:', timeOnPage, 'seconds');
-        // Send to analytics service
     });
 
     // Add click tracking for important CTAs
@@ -222,7 +216,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 text: this.textContent.trim(),
                 section: this.closest('section')?.className || 'unknown'
             });
-            // Send to analytics
         });
     });
 
