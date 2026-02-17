@@ -67,7 +67,9 @@ h1, h2, h3, h4 {
 }
 
 .fade-in {
-    animation: fadeInUp 0.8s ease-out;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 .fade-in-delay-1 {
@@ -1070,7 +1072,6 @@ section {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
     .synergy-indicator {
         transform: rotate(90deg);
         margin: 20px 0;
@@ -1081,40 +1082,32 @@ section {
     .hero-title {
         font-size: 2.5rem;
     }
-    
     .hero-subtitle {
         font-size: 1.2rem;
     }
-    
     .section-title {
         font-size: 2rem;
     }
-    
     .trust-badges {
         gap: 20px;
     }
-    
     .problem-grid,
     .testimonials-grid,
     .pricing-grid {
         grid-template-columns: 1fr;
     }
-    
     .pricing-card.featured {
         transform: scale(1);
     }
-    
     .pricing-card.featured:hover {
         transform: translateY(-10px);
     }
-    
     .whatsapp-float {
         bottom: 20px;
         right: 20px;
         width: 55px;
         height: 55px;
     }
-    
     .footer-bottom-content {
         flex-direction: column;
         text-align: center;
@@ -1125,29 +1118,23 @@ section {
     .hero {
         padding: 60px 0 40px;
     }
-    
     .hero-title {
         font-size: 1.8rem;
     }
-    
     .hero-subtitle {
         font-size: 1rem;
     }
-    
     .cta-button {
         padding: 15px 30px;
         font-size: 1rem;
     }
-    
     .cta-button.large {
         padding: 18px 35px;
         font-size: 1.1rem;
     }
-    
     section {
         padding: 50px 0;
     }
-    
     .section-title {
         font-size: 1.6rem;
     }
